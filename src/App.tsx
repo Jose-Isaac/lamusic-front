@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
+import GlobalState from './global/GlobalState';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-     
-    </div>
+    <GlobalState>
+      
+    </GlobalState>
   );
 }
 
