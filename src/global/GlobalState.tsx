@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { FC } from 'react';
 import GlobalStateContext from './GlobalStateContext';
 
+
+
 const GlobalState: FC = ({ children }) => {
   const [isDark, setIsDark] = useState(true)
 
-  const statesAndSetters = {
-    states: {
-      isDark
-    },
-    setters: {
-      setIsDark
+    const globalContext = {
+      states: {
+        isDark
+      },
+
+      setters: {
+        setIsDark
+      }
+
     }
-  }
+
   
   return (
-    <GlobalStateContext.Provider value={statesAndSetters}>
+    <GlobalStateContext.Provider value={globalContext}>
       {children}
     </GlobalStateContext.Provider>
   );
