@@ -23,8 +23,10 @@ export const ActionToLogin = styled.p<{ fontColor: string; linkColor: string }>`
   font-size: 3.4vw;
   color: ${(props) => props.fontColor};
 
-  a {
+  button {
     color: ${(props) => props.linkColor};
+    background-color: transparent;
+    border: none;
   }
 `;
 

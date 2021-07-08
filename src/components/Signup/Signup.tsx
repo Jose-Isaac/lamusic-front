@@ -8,6 +8,7 @@ import Input from '../Input/Input';
 import { useForm } from '../../Hooks/useForm';
 
 import { Container, BoxMain, BoxTitles, ActionToLogin } from './styles';
+import { useHistory } from 'react-router-dom';
 
 interface SignupProps {
   theme: themeStructure;
@@ -20,6 +21,7 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
     password: '',
     confirmPassword: '',
   };
+  const history = useHistory();
   const { form, onChange } = useForm(initialState);
   return (
     <Container>
@@ -74,7 +76,8 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
           fontColor={theme.font.secondary}
           linkColor={theme.font.primary}
         >
-          You already have on account ? Login
+          You already have on account ?{' '}
+          <button onClick={() => history.push('/login')}>Login</button>
         </ActionToLogin>
       </BoxMain>
     </Container>

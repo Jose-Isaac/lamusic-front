@@ -16,4 +16,5 @@ export const ButtonSubmit = styled.button<{
   background-color: ${(props) => props.bgColor};
   color: ${(props) => props.fontColor};
   font-weight: 600;
+  cursor: pointer;
 `;
