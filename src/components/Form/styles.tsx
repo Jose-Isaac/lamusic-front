@@ -9,12 +9,19 @@ export const ButtonSubmit = styled.button<{
   fontColor: string;
 }>`
   width: 100%;
-  margin-top: 6vh;
   border-radius: 50px;
-  height: 6vh;
-  font-size: 2vh;
+  height: 3.4rem;
+  font-size: 1.4rem;
   background-color: ${(props) => props.bgColor};
   color: ${(props) => props.fontColor};
   font-weight: 600;
   cursor: pointer;
+  outline: none;
+  border: none;
+  margin-top: 2rem;
+
+  @media screen and (max-width: 414px) {
+    font-size: 1.2rem;
+    height: 3.2rem;
+  }
 `;

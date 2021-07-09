@@ -7,14 +7,19 @@ import { BoxForm, ButtonSubmit } from './styles';
 interface FormProps {
   children: React.ReactNode;
   labelButtonSubmit: string;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const Form: React.FC<FormProps> = ({ children, labelButtonSubmit }) => {
+const Form: React.FC<FormProps> = ({
+  children,
+  labelButtonSubmit,
+  onSubmit,
+}) => {
   const globalContext = useContext(GlobalStateContext) as globalContext;
   const { isDark } = globalContext.states;
   const theme = Themes[isDark ? 'dark' : 'light'];
   return (
-    <BoxForm onSubmit={(event) => event.preventDefault()}>
+    <BoxForm onSubmit={onSubmit}>
       {children}
       <ButtonSubmit
         bgColor={theme.font.primary}

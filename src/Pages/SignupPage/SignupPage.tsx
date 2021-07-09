@@ -13,10 +13,7 @@ const SignupPage: React.FC = () => {
   const theme = Themes[isDark ? 'dark' : 'light'];
 
   return (
-    <Container
-      bgColor={theme.background.primary}
-      fontColor={theme.font.primary}
-    >
+    <Container bgColor={theme.background.primary}>
       <Signup theme={theme}></Signup>
     </Container>
   );

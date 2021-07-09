@@ -28,7 +28,12 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <BoxInput borderColor={theme.font.primary}>
-      <LabelInput bgColor={theme.background.primary}>{label}</LabelInput>
+      <LabelInput
+        bgColor={theme.background.primary}
+        fontColor={theme.font.secondary}
+      >
+        {label}:
+      </LabelInput>
       <InputField
         placeholder={placeholder}
         value={value}
