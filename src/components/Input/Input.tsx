@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import { Themes } from '../../Themes/Themes';
 import { globalContext } from '../../types/globalContext';
-import { InputField, BoxInput, LabelInput } from './styles';
+import { InputField, BoxInput, LabelInput, Container, Error } from './styles';
 
 interface InputProps {
   label: string;
@@ -12,6 +12,7 @@ interface InputProps {
   type: string;
   name: string;
   required: boolean;
+  errorMessage: string;
 }
 const Input: React.FC<InputProps> = ({
   label,
@@ -21,30 +22,36 @@ const Input: React.FC<InputProps> = ({
   type,
   name,
   required,
+  errorMessage,
 }) => {
   const globalContext = useContext(GlobalStateContext) as globalContext;
   const { isDark } = globalContext.states;
   const theme = Themes[isDark ? 'dark' : 'light'];
 
   return (
-    <BoxInput borderColor={theme.font.primary}>
-      <LabelInput
-        bgColor={theme.background.primary}
-        fontColor={theme.font.secondary}
-      >
-        {label}:
-      </LabelInput>
-      <InputField
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        type={type}
-        name={name}
-        required={required}
-        bgColor={theme.background.primary}
-        fontColor={theme.font.secondary}
-      />
-    </BoxInput>
+    <Container hashError={errorMessage.length > 0}>
+      <BoxInput borderColor={theme.font.primary}>
+        <LabelInput
+          bgColor={theme.background.primary}
+          fontColor={theme.font.secondary}
+        >
+          {label}:
+        </LabelInput>
+        <InputField
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          type={type}
+          name={name}
+          required={required}
+          bgColor={theme.background.primary}
+          fontColor={theme.font.secondary}
+        />
+      </BoxInput>
+      {errorMessage && (
+        <Error fontColor={theme.error.primary}>{errorMessage}</Error>
+      )}
+    </Container>
   );
 };
 

@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 
+export const Container = styled.div<{ hashError: boolean }>`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: ${(props) => (props.hashError ? 1 : 2.2)}rem;
+`;
+
 export const BoxInput = styled.div<{ borderColor: string }>`
   width: 100%;
   border: 0.13rem dashed ${(props) => props.borderColor};
   height: 3rem;
   border-radius: 50px;
-  margin-bottom: 2rem;
   position: relative;
-
-  @media screen and (max-width: 1024px) {
-    height: 3.6rem;
-    margin-bottom: 2.4rem;
-  }
-
-  @media screen and (max-width: 414px) {
-    height: 3rem;
-    margin-bottom: 2rem;
-  }
 `;
 
 export const LabelInput = styled.span<{ bgColor: string; fontColor: string }>`
@@ -56,5 +52,15 @@ export const InputField = styled.input<{ bgColor: string; fontColor: string }>`
 
   @media screen and (max-width: 414px) {
     font-size: 1rem;
+  }
+`;
+
+export const Error = styled.p<{ fontColor: string }>`
+  width: 100%;
+  color: ${(props) => props.fontColor};
+  padding: 0.8rem 1rem;
+
+  @media screen and (max-width: 414px) {
+    font-size: 0.9rem;
   }
 `;

@@ -6,4 +6,7 @@ export type themeStructure = {
     primary: string;
     secondary: string;
   };
+  error: {
+    primary: string;
+  };
 };

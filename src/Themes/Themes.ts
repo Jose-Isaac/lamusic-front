@@ -9,6 +9,9 @@ export const Themes: ThemesStructure = {
       primary: '#1e90ff',
       secondary: '#C7C8CE',
     },
+    error: {
+      primary: '#eccc68',
+    },
   },
   light: {
     background: {
@@ -17,6 +20,9 @@ export const Themes: ThemesStructure = {
     font: {
       primary: '',
       secondary: '',
+    },
+    error: {
+      primary: '',
     },
   },
 };

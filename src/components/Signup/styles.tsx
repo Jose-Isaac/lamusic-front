@@ -6,9 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media screen and (max-width: 414px) {
-  }
+  margin-bottom: 10vh;
 `;
 
 export const BoxMain = styled.div`
@@ -34,7 +32,7 @@ export const BoxMain = styled.div`
 
   @media screen and (max-width: 414px) {
     width: 80%;
-    height: 82%;
+    height: 90%;
   }
 `;
 
@@ -61,7 +59,7 @@ export const ActionToLogin = styled.p<{ fontColor: string; linkColor: string }>`
 
   @media screen and (max-width: 414px) {
     font-size: 0.9rem;
-    margin-top: 2rem;
+    margin: 1.4rem 0 2rem 0;
     button {
       font-size: 0.9rem;
     }

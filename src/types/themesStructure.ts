@@ -7,6 +7,9 @@ export type ThemesStructure = {
       primary: string;
       secondary: string;
     };
+    error: {
+      primary: string;
+    };
   };
   light: {
     background: {
@@ -15,6 +18,9 @@ export type ThemesStructure = {
     font: {
       primary: string;
       secondary: string;
+    };
+    error: {
+      primary: string;
     };
   };
 };
