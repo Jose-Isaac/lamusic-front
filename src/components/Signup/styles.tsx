@@ -17,9 +17,13 @@ export const BoxMain = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+  @media screen and (max-width: 1250px) {
+    width: 40%;
+  }
+
   @media screen and (max-width: 1024px) {
-    width: 42%;
-    height: 62%;
+    width: 54%;
+    height: 84%;
   }
   @media screen and (max-width: 768px) {
     width: 60%;
@@ -27,7 +31,8 @@ export const BoxMain = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 74%;
+    width: 78%;
+    height: 90%;
   }
 
   @media screen and (max-width: 414px) {
@@ -39,27 +44,19 @@ export const BoxMain = styled.div`
 export const ActionToLogin = styled.p<{ fontColor: string; linkColor: string }>`
   width: 100%;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: ${(props) => props.fontColor};
+  margin: 1.4rem 0 2rem 0;
 
   button {
     color: ${(props) => props.linkColor};
     background-color: transparent;
     border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
-  @media screen and (max-width: 1204px) {
-    font-size: 1.3rem;
-
-    button {
-      font-size: 1.3rem;
-    }
-  }
-
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 768px) {
     font-size: 0.9rem;
-    margin: 1.4rem 0 2rem 0;
     button {
       font-size: 0.9rem;
     }
@@ -68,8 +65,5 @@ export const ActionToLogin = styled.p<{ fontColor: string; linkColor: string }>`
 
 export const BoxTitles = styled.div`
   width: 100%;
-
-  @media screen and (max-width: 414px) {
-    margin-bottom: 4rem;
-  }
+  margin-bottom: 4rem;
 `;

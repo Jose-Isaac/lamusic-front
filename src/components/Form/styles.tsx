@@ -10,8 +10,8 @@ export const ButtonSubmit = styled.button<{
 }>`
   width: 100%;
   border-radius: 50px;
-  height: 3.4rem;
-  font-size: 1.4rem;
+  height: 3.6rem;
+  font-size: 1.6rem;
   background-color: ${(props) => props.bgColor};
   color: ${(props) => props.fontColor};
   font-weight: 600;
@@ -20,7 +20,7 @@ export const ButtonSubmit = styled.button<{
   border: none;
   margin-top: 2rem;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 768px) {
     font-size: 1.2rem;
     height: 3.2rem;
   }
