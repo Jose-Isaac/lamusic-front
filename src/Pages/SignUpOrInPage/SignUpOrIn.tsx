@@ -6,7 +6,7 @@ import { globalContext } from '../../types/globalContext';
 
 import { Container } from './styled';
 
-const HomePage: React.FC = () => {
+const SignUpOrInPage: React.FC = () => {
   const globalContext = useContext(GlobalStateContext) as globalContext;
   const { isDark } = globalContext.states;
   const theme = Themes[isDark ? 'dark' : 'light'];
@@ -18,4 +18,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default SignUpOrInPage;

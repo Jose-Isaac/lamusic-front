@@ -1,5 +1,5 @@
-import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import SignUpOrInPage from '../Pages/SignUpOrInPage/SignUpOrIn';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import SignupPage from '../Pages/SignupPage/SignupPage';
 
@@ -7,7 +7,9 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <SignUpOrInPage />
+        </Route>
         <Route exact path="/signup">
           <SignupPage />
         </Route>
