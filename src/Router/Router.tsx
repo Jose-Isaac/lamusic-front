@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import SignupPage from '../Pages/SignupPage/SignupPage';
 
 const Router = () => {
@@ -8,9 +9,11 @@ const Router = () => {
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/signup">
-          <SignupPage></SignupPage>
+          <SignupPage />
         </Route>
-        <Route exact path="/login"></Route>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
