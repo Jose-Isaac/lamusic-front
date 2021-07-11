@@ -45,3 +45,13 @@ export const BoxTitles = styled.div`
   width: 100%;
   margin-bottom: 4rem;
 `;
+
+export const BoxIllustration = styled.div`
+  width: 100%;
+  height: 20%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;

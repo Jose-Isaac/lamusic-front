@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { themeStructure } from '../../types/themeStructure';
 import { signupFormField } from '../../types/form';
+import { InformationForClickAction } from '../InformationForClickAction/InformationForClickAction';
 import TitleSign from '../TitleSign/TitleSign';
 import SubTitleSign from '../SubTitleSign/SubTitleSign';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
 import { useForm } from '../../Hooks/useForm';
 
-import { Container, BoxMain, BoxTitles, ActionToLogin } from './styles';
+import { Container, BoxMain, BoxTitles } from './styles';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/api';
@@ -25,11 +26,11 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
     confirmPassword: '',
   };
   const history = useHistory();
-  const [error, setError] = useState<signupFormField>(initialState);
-  const { form, onChange } = useForm(initialState);
+  const [error, setError] = useState(initialState);
+  const [form, onChange] = useForm<signupFormField>(initialState);
 
   //TODO pesquisar como tipar o history do react-router
-  // Após pesq
+  // Após pesquisa refatorar esse trecho
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const currentError = { ...initialState };
@@ -71,7 +72,6 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
     }
 
     if (!hashError) {
-      console.log('entrou');
       axios
         .post(`${BASE_URL}/users/signup`, form)
         .then((res) => {
@@ -79,7 +79,6 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
           history.push('/');
         })
         .catch((err) => {
-          console.log('passou');
           const errorMessage = err.response.data.message;
           let wasTreated = false;
 
@@ -165,13 +164,14 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
           />
         </Form>
 
-        <ActionToLogin
+        <InformationForClickAction
           fontColor={theme.font.secondary}
           linkColor={theme.font.primary}
+          labelLink="Login"
+          goToPage="/login"
         >
-          You already have on account ?{' '}
-          <button onClick={() => history.push('/login')}>Login</button>
-        </ActionToLogin>
+          You already have on account ?
+        </InformationForClickAction>
       </BoxMain>
     </Container>
   );

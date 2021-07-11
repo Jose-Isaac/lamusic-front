@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { signinFormField, signupFormField } from '../types/form';
 
-export const useForm = (
-  initialState: signupFormField & signinFormField
-): {
-  form: signupFormField & signinFormField;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-} => {
-  const [form, setForm] = useState(initialState);
+export const useForm = function <type>(
+  initialState: type
+): [type, (event: React.ChangeEvent<HTMLInputElement>) => void] {
+  const [form, setForm] = useState<type>(initialState);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -15,5 +11,5 @@ export const useForm = (
     setForm({ ...form, [name]: value });
   };
 
-  return { form, onChange };
+  return [form, onChange];
 };
