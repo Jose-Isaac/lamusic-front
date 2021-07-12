@@ -4,6 +4,8 @@ export const Themes: ThemesStructure = {
   dark: {
     background: {
       primary: '#060912',
+      secondary: '#1e90ff',
+      tertiary: '#1e272e',
     },
     font: {
       primary: '#1e90ff',
@@ -16,6 +18,8 @@ export const Themes: ThemesStructure = {
   light: {
     background: {
       primary: '',
+      secondary: '',
+      tertiary: '',
     },
     font: {
       primary: '',

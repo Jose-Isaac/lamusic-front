@@ -2,6 +2,8 @@ export type ThemesStructure = {
   dark: {
     background: {
       primary: string;
+      secondary: string;
+      tertiary: string;
     };
     font: {
       primary: string;
@@ -14,6 +16,8 @@ export type ThemesStructure = {
   light: {
     background: {
       primary: string;
+      secondary: string;
+      tertiary: string;
     };
     font: {
       primary: string;
