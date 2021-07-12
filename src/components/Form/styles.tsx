@@ -18,10 +18,14 @@ export const ButtonSubmit = styled.button<{
   cursor: pointer;
   outline: none;
   border: none;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1400px) {
     font-size: 1.2rem;
+    height: 3rem;
+  }
+
+  @media screen and (max-width: 414px) {
     height: 3.2rem;
   }
 `;

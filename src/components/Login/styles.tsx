@@ -10,15 +10,15 @@ export const Container = styled.div`
 `;
 
 export const BoxMain = styled.div`
-  width: 34%;
+  width: 28%;
   height: 88%;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  @media screen and (max-width: 1250px) {
-    width: 40%;
+  @media screen and (max-width: 1400px) {
+    width: 35%;
   }
 
   @media screen and (max-width: 1024px) {

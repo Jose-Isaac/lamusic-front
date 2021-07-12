@@ -5,13 +5,13 @@ export const SubTitle = styled.h3<{ fontColor: string }>`
   font-size: 1.4rem;
   margin-top: 1.4rem;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1400px) {
     font-size: 1.2rem;
-    margin-top: 2.8vw;
+    margin-top: 1.2rem;
   }
 
   @media screen and (max-width: 768px) {
     font-size: 1rem;
-    margin-top: 4vw;
+    margin-top: 1rem;
   }
 `;
