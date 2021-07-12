@@ -76,7 +76,7 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
         .post(`${BASE_URL}/users/signup`, form)
         .then((res) => {
           localStorage.setItem('token', res.data.token);
-          history.push('/');
+          history.push('/dashboard');
         })
         .catch((err) => {
           const errorMessage = err.response.data.message;
