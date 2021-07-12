@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import SignUpOrInPage from '../Pages/SignUpOrInPage/SignUpOrIn';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import SignupPage from '../Pages/SignupPage/SignupPage';
+import DashboardPage from '../Pages/DashboardPage/DashboardPage';
 
 const Router = () => {
   return (
@@ -16,7 +17,9 @@ const Router = () => {
         <Route exact path="/login">
           <LoginPage />
         </Route>
-        <Route exact path="/dashboard"></Route>
+        <Route exact path="/dashboard">
+          <DashboardPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
