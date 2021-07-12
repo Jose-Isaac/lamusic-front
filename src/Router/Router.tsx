@@ -16,6 +16,7 @@ const Router = () => {
         <Route exact path="/login">
           <LoginPage />
         </Route>
+        <Route exact path="/dashboard"></Route>
       </Switch>
     </BrowserRouter>
   );
