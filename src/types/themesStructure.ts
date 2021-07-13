@@ -8,6 +8,7 @@ export type ThemesStructure = {
     font: {
       primary: string;
       secondary: string;
+      tertiary: string;
     };
     error: {
       primary: string;
@@ -22,6 +23,7 @@ export type ThemesStructure = {
     font: {
       primary: string;
       secondary: string;
+      tertiary: string;
     };
     error: {
       primary: string;

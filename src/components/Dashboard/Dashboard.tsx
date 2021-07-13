@@ -29,7 +29,7 @@ const Dashboard: React.FC<DashboardProps> = ({ theme }) => {
       />
       <MenuMobileFixed
         bgColor={theme.background.tertiary}
-        fontColor={theme.font.secondary}
+        fontColor={theme.font.tertiary}
         fontSelectedColor={theme.font.primary}
       />
     </Container>

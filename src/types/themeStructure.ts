@@ -7,6 +7,7 @@ export type themeStructure = {
   font: {
     primary: string;
     secondary: string;
+    tertiary: string;
   };
   error: {
     primary: string;
