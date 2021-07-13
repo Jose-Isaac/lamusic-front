@@ -20,6 +20,7 @@ const Router = () => {
         <Route exact path="/dashboard">
           <DashboardPage />
         </Route>
+        <Route exact path="/music/new"></Route>
       </Switch>
     </BrowserRouter>
   );
