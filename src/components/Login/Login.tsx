@@ -49,7 +49,8 @@ const Login: React.FC<LoginProps> = ({ theme }) => {
         .post(`${BASE_URL}/users/login`, form)
         .then((res) => {
           localStorage.setItem('token', res.data.token);
-          history.push('/');
+          localStorage.setItem('user', JSON.stringify(res.data.user));
+          history.push('/dashboard');
         })
         .catch((err) => {
           const errorMessage = err.response.data.message;
