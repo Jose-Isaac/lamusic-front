@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react';
 import { music } from '../../types/music';
 import CardMusic from '../CardMusic/CardMusic';
 
+import { Container } from './styles';
+
 interface Props {
   musics: music[];
   fontColor: string;
@@ -16,7 +18,7 @@ export default function ListMusics({
   userName,
 }: Props): ReactElement {
   return (
-    <React.Fragment>
+    <Container>
       {musics.map((music) => (
         <CardMusic
           userName={userName}
@@ -25,6 +27,6 @@ export default function ListMusics({
           music={music}
         />
       ))}
-    </React.Fragment>
+    </Container>
   );
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div<{ bgColor: string }>`
   width: 100%;
   padding: 1rem 1.5rem;
+  box-sizing: border-box;
 `;
 
 export const Title = styled.p<{ fontColor: string }>`
