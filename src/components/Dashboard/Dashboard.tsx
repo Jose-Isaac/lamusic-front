@@ -2,6 +2,7 @@ import React from 'react';
 import { useRequestData } from '../../Hooks/useRequestData';
 import { music } from '../../types/music';
 import { themeStructure } from '../../types/themeStructure';
+import ListMusics from '../ListMusics/ListMusics';
 import MenuMobileFixed from '../MenuMobileFixed/MenuMobileFixed';
 
 import { Container } from './styles';
@@ -17,9 +18,15 @@ const Dashboard: React.FC<DashboardProps> = ({ theme }) => {
     { message: '', musics: [] }
   );
 
-  console.log(data);
+  console.log(user);
   return (
     <Container>
+      <ListMusics
+        userName={user.name}
+        bgColor={theme.background.tertiary}
+        fontColor={theme.font.secondary}
+        musics={data.musics}
+      />
       <MenuMobileFixed
         bgColor={theme.background.tertiary}
         fontColor={theme.font.secondary}

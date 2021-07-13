@@ -76,7 +76,7 @@ const Signup: React.FC<SignupProps> = ({ theme }) => {
         .post(`${BASE_URL}/users/signup`, form)
         .then((res) => {
           localStorage.setItem('token', res.data.token);
-          localStorage.setItem('username', res.data.user);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
           history.push('/dashboard');
         })
         .catch((err) => {

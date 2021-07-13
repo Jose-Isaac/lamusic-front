@@ -49,7 +49,7 @@ const Login: React.FC<LoginProps> = ({ theme }) => {
         .post(`${BASE_URL}/users/login`, form)
         .then((res) => {
           localStorage.setItem('token', res.data.token);
-          localStorage.setItem('username', res.data.user);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
           history.push('/dashboard');
         })
         .catch((err) => {
