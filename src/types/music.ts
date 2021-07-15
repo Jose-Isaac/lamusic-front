@@ -12,3 +12,9 @@ type genre = {
   id: string;
   name: string;
 };
+
+export type NewMusicData = {
+  title: string;
+  album_id: string;
+  genres_id: string[];
+};
