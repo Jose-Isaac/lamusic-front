@@ -6,7 +6,7 @@ import InputRadio from '../InputRadio/InputRadio';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
 
-import { Container, TextOpenForm, ContainerForm } from './styles';
+import { Container, TextOpenForm, Form as FormNewAlbum } from './styles';
 import { useForm } from '../../Hooks/useForm';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/api';
@@ -32,8 +32,6 @@ export default function SelectOrCreateAlbum({
   const [error, setError] = useState({ name: '' });
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log('entrou');
-
     event.preventDefault();
     const currentError = { name: '' };
     let hashError = false;
@@ -45,14 +43,20 @@ export default function SelectOrCreateAlbum({
     }
 
     if (!hashError) {
+      const token = localStorage.getItem('token');
       axios
-        .post(`${BASE_URL}/albums/`, form)
+        .post(
+          `${BASE_URL}/albums/`,
+          { ...form },
+          { headers: { Authorization: token } }
+        )
         .then((res) => {
+          form.name = '';
           getData();
           setIsNewAlbum(false);
         })
         .catch((err) => {
-          const errorMessage = err.response.data.message;
+          const errorMessage = err.response.data.error;
           let wasTreated = false;
 
           if (errorMessage.includes('name')) {
@@ -92,22 +96,20 @@ export default function SelectOrCreateAlbum({
         Can't find the album?<button>Create</button>
       </TextOpenForm>
 
-      <ContainerForm>
-        {isNewAlbum && (
-          <Form onSubmit={onSubmit} labelButtonSubmit="Create Album">
-            <Input
-              label="Album name"
-              placeholder="name"
-              value={form.name}
-              onChange={onChangeForm}
-              type="text"
-              name="name"
-              required={true}
-              errorMessage={error['name']}
-            />
-          </Form>
-        )}
-      </ContainerForm>
+      {isNewAlbum && (
+        <Form onSubmit={onSubmit} labelButtonSubmit="Create Album">
+          <Input
+            label="Album name"
+            placeholder="name"
+            value={form.name}
+            onChange={onChangeForm}
+            type="text"
+            name="name"
+            required={true}
+            errorMessage={error['name']}
+          />
+        </Form>
+      )}
     </Container>
   );
 }

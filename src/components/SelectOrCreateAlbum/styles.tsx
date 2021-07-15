@@ -39,7 +39,7 @@ export const TextOpenForm = styled.p<{
   }
 `;
 
-export const ContainerForm = styled.div`
+export const Form = styled.form`
   button {
     margin: 0;
     font-size: 1.4rem;

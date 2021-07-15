@@ -3,15 +3,15 @@ import { NewMusicData } from '../../types/music';
 import { themeStructure } from '../../types/themeStructure';
 import SubTitleSign from '../SubTitleSign/SubTitleSign';
 import TitleSign from '../TitleSign/TitleSign';
-import Form from '../Form/Form';
 import Input from '../Input/Input';
 
-import { Container, BoxMain, BoxTitles } from './styles';
+import { Container, BoxMain, BoxTitles, Form } from './styles';
 import { useForm } from '../../Hooks/useForm';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/api';
 import { useHistory } from 'react-router-dom';
 import SelectOrCreateAlbum from '../SelectOrCreateAlbum/SelectOrCreateAlbum';
+import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
 
 interface Props {
   theme: themeStructure;
@@ -30,7 +30,7 @@ export default function NewMusic({ theme }: Props): ReactElement {
 
   //TODO pesquisar como tipar o history do react-router
   // Após pesquisa refatorar esse trecho
-  const onSubmitNewMusic = (event: React.FormEvent) => {
+  const onSubmitNewMusic = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const currentError = { ...initialState };
     let hashError = false;
@@ -75,7 +75,7 @@ export default function NewMusic({ theme }: Props): ReactElement {
             Add a new song to your library
           </SubTitleSign>
         </BoxTitles>
-        <Form onSubmit={onSubmitNewMusic} labelButtonSubmit="Create music">
+        <form>
           <Input
             label="Title"
             placeholder="Title"
@@ -86,12 +86,18 @@ export default function NewMusic({ theme }: Props): ReactElement {
             required={true}
             errorMessage={error['title']}
           />
-          <SelectOrCreateAlbum
-            currentOptionSelected={newMusicForm.album_id}
-            onChange={onChange}
-            theme={theme}
-          />
-        </Form>
+        </form>
+        <SelectOrCreateAlbum
+          currentOptionSelected={newMusicForm.album_id}
+          onChange={onChange}
+          theme={theme}
+        />
+        <ButtonSubmit
+          bgColor={theme.background.secondary}
+          fontColor={theme.font.secondary}
+        >
+          Create music
+        </ButtonSubmit>
       </BoxMain>
     </Container>
   );

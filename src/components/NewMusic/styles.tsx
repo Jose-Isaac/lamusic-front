@@ -45,3 +45,7 @@ export const BoxTitles = styled.div`
   width: 100%;
   margin-bottom: 4rem;
 `;
+
+export const Form = styled.form`
+  width: 100%;
+`;

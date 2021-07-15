@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import GlobalStateContext from '../../global/GlobalStateContext';
 import { Themes } from '../../Themes/Themes';
 import { globalContext } from '../../types/globalContext';
-import { BoxForm, ButtonSubmit } from './styles';
+import { BoxForm } from './styles';
+import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
 
 interface FormProps {
   children: React.ReactNode;
