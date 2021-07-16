@@ -18,7 +18,6 @@ const Dashboard: React.FC<DashboardProps> = ({ theme }) => {
     { message: '', musics: [] }
   );
 
-  console.log(user);
   return (
     <Container>
       <ListMusics

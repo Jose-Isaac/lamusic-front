@@ -3,6 +3,7 @@ import SignUpOrInPage from '../Pages/SignUpOrInPage/SignUpOrIn';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import SignupPage from '../Pages/SignupPage/SignupPage';
 import DashboardPage from '../Pages/DashboardPage/DashboardPage';
+import NewMusicPage from '../Pages/NewMusicPage/NewMusicPage';
 
 const Router = () => {
   return (
@@ -19,6 +20,9 @@ const Router = () => {
         </Route>
         <Route exact path="/dashboard">
           <DashboardPage />
+        </Route>
+        <Route exact path="/music/new">
+          <NewMusicPage />
         </Route>
       </Switch>
     </BrowserRouter>
