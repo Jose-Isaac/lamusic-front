@@ -6,15 +6,17 @@ interface Props {
   bgColor: string;
   fontColor: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
 export default function ButtonSubmit({
   bgColor,
   fontColor,
   children,
+  onClick,
 }: Props): ReactElement {
   return (
-    <Button bgColor={bgColor} fontColor={fontColor}>
+    <Button onClick={onClick} bgColor={bgColor} fontColor={fontColor}>
       {children}
     </Button>
   );

@@ -16,5 +16,5 @@ type genre = {
 export type NewMusicData = {
   title: string;
   album_id: string;
-  genres_id: string[];
+  genres_id?: string[];
 };

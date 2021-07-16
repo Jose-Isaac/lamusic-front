@@ -4,14 +4,13 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 10vh;
+  margin: 10vh 0;
 `;
 
 export const BoxMain = styled.div`
   width: 34%;
-  height: 88%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -23,11 +22,9 @@ export const BoxMain = styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 54%;
-    height: 84%;
   }
   @media screen and (max-width: 768px) {
     width: 60%;
-    height: 78%;
   }
 
   @media screen and (max-width: 600px) {

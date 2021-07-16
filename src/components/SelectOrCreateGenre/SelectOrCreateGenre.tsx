@@ -1,8 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { useRequestData } from '../../Hooks/useRequestData';
-import { album } from '../../types/album';
 import { themeStructure } from '../../types/themeStructure';
-import InputRadio from '../InputRadio/InputRadio';
+import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
 
@@ -10,24 +9,25 @@ import { Container, TextOpenForm, Form as FormNewGenre } from './styles';
 import { useForm } from '../../Hooks/useForm';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/api';
+import { genre } from '../../types/genre';
 
 interface Props {
   theme: themeStructure;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  currentOptionSelected: string;
+  currentOptionsSelected: string[];
 }
 
-export default function SelectOrCreateAlbum({
+export default function SelectOrCreateGenre({
   theme,
   onChange,
-  currentOptionSelected,
+  currentOptionsSelected,
 }: Props): ReactElement {
-  const [data, getData] = useRequestData<{ message: string; albums: album[] }>(
-    '/albums/',
-    { message: '', albums: [] }
+  const [data, getData] = useRequestData<{ message: string; genres: genre[] }>(
+    '/genres/',
+    { message: '', genres: [] }
   );
 
-  const [isNewAlbum, setIsNewAlbum] = useState(false);
+  const [isNewGenre, setIsNewGenre] = useState(false);
   const [form, onChangeForm] = useForm<{ name: string }>({ name: '' });
   const [error, setError] = useState({ name: '' });
 
@@ -46,14 +46,14 @@ export default function SelectOrCreateAlbum({
       const token = localStorage.getItem('token');
       axios
         .post(
-          `${BASE_URL}/albums/`,
+          `${BASE_URL}/genres/`,
           { ...form },
           { headers: { Authorization: token } }
         )
         .then((res) => {
           form.name = '';
           getData();
-          setIsNewAlbum(false);
+          setIsNewGenre(false);
         })
         .catch((err) => {
           const errorMessage = err.response.data.error;
@@ -75,31 +75,35 @@ export default function SelectOrCreateAlbum({
 
   return (
     <Container>
-      {data.albums.length > 0 &&
-        data.albums.map((album) => (
-          <InputRadio
-            groupName="album_id"
-            value={album.id}
-            label={album.name}
+      {data.genres.length > 0 &&
+        data.genres.map((genre) => (
+          <InputCheckbox
+            groupName="genres_id"
+            value={genre.id}
+            label={genre.name}
             color={theme.font.tertiary}
             selectedColor={theme.font.primary}
             onChange={onChange}
-            isSelected={currentOptionSelected === album.id}
+            isSelected={
+              currentOptionsSelected.find((option) => option === genre.id)
+                ? true
+                : false
+            }
           />
         ))}
 
       <TextOpenForm
-        onClick={() => setIsNewAlbum(true)}
+        onClick={() => setIsNewGenre(true)}
         fontColor={theme.font.secondary}
         linkColor={theme.font.primary}
       >
-        Can't find the album?<button>Create</button>
+        Can't find the genre?<button>Create</button>
       </TextOpenForm>
 
-      {isNewAlbum && (
-        <Form onSubmit={onSubmit} labelButtonSubmit="Create Album">
+      {isNewGenre && (
+        <Form onSubmit={onSubmit} labelButtonSubmit="Create Genre">
           <Input
-            label="Album name"
+            label="Genre name"
             placeholder="name"
             value={form.name}
             onChange={onChangeForm}
